@@ -14,7 +14,15 @@ const Form = ()=>{
 
     }
     const signUp = async()=>{
+        let response;
         console.log(formData);
+        fetch('http://localhost:4000/signup'{
+            method:"POST",
+            headers:{
+                Accept:'application/json'
+            },
+            body:JSON.stringify(formData)
+        }).then((res)=>res.json()).then((data)=>response=data)
     }
     return(
         <>  
