@@ -13,17 +13,37 @@ const Form = ()=>{
         });
 
     }
-    const signUp = async()=>{
-        let response;
-        console.log(formData);
-        fetch('http://localhost:4000/signup'{
-            method:"POST",
-            headers:{
-                Accept:'application/json'
-            },
-            body:JSON.stringify(formData)
-        }).then((res)=>res.json()).then((data)=>response=data)
+    const onGoogleSignIn = async () => {
+        const auth2 = window.gapi.auth2.getAuthInstance();
+        try {
+            const googleUser = await auth2.signIn();
+            const profile = googleUser.getBasicProfile();
+            setFormData({
+                ...formData,
+                name: profile.getName(),
+                email: profile.getEmail(),
+                // You may want to handle password differently for Google sign-in
+            });
+            // You can call signUp or any other function to proceed with the sign-up process
+        } catch (error) {
+            console.error('Google Sign-In Error:', error);
+        }
     }
+    const signUp = async () => {
+        console.log(formData);
+    }
+
+    // const signUp = async()=>{
+    //     let response;
+    //     console.log(formData);
+    //     fetch('http://localhost:4000/signup'{
+    //         method:"POST",
+    //         headers:{
+    //             Accept:'application/json'
+    //         },
+    //         body:JSON.stringify(formData)
+    //     }).then((res)=>res.json()).then((data)=>response=data)
+    // }
     return(
         <>  
         <div className="main">
@@ -35,6 +55,7 @@ const Form = ()=>{
             <label htmlFor="password">Password  <input name="password" onChange={changeHaldler} value={formData.password} type="password" placeholder="Enter your password" /></label>
         </form> 
         <button onClick={()=>{console.log(`button click`); signUp()}}>Register</button>
+        <button onClick={onGoogleSignIn}>Sign in with Google</button>
         </div>
         </div>
         </>
