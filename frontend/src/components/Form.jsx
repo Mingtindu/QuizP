@@ -29,21 +29,32 @@ const Form = ()=>{
             console.error('Google Sign-In Error:', error);
         }
     }
-    const signUp = async () => {
-        console.log(formData);
-    }
-
-    // const signUp = async()=>{
-    //     let response;
+    // const signUp = async () => {
     //     console.log(formData);
-    //     fetch('http://localhost:4000/signup'{
-    //         method:"POST",
-    //         headers:{
-    //             Accept:'application/json'
-    //         },
-    //         body:JSON.stringify(formData)
-    //     }).then((res)=>res.json()).then((data)=>response=data)
     // }
+
+    const signUp = async()=>{
+        let response;
+        console.log(formData);
+        const res= await fetch('http://localhost:8000/api/v1/users/register',{
+            method:"POST",
+            headers:{
+                Accept:'application/json',
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify(formData)
+        }).then((res)=>res.json()).then((data)=>response=data)
+        console.log(response);
+        console.log(res.status);
+        if(res.status==201){
+            alert("Successfully created user ");
+            window.location('/');
+
+        }else if(res.status==409){
+            alert("User with same email exists")
+            console.log(res.status);
+        }
+    }
     return(
         <>  
         <div className="main">
