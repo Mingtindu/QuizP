@@ -1,0 +1,38 @@
+.play-quiz {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .question-container {
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .options-container {
+    margin-top: 10px;
+  }
+  
+  .option {
+    margin-bottom: 10px;
+  }
+  
+  .option input[type='radio'] {
+    margin-right: 5px;
+  }
+  
+  .quiz-results {
+    text-align: center;
+  }
+  
+  .quiz-results h2 {
+    color: #007bff;
+  }
+  
+  .quiz-results p {
+    font-size: 20px;
+  }
+  

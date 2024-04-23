@@ -1,0 +1,33 @@
+.user-dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .user-info {
+    text-align: center;
+  }
+  
+  .user-photo {
+    width: 100px; /* Adjust as needed */
+    height: 100px; /* Adjust as needed */
+    border-radius: 50%; /* Make it circular */
+  }
+  
+  .play-option {
+    margin-top: 20px; /* Adjust spacing */
+  }
+  
+  .play-link {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+  }
+  
+  .play-link:hover {
+    background-color: #0056b3;
+  }
+  

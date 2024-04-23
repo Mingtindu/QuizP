@@ -1,21 +1,19 @@
-import { useState } from 'react'
-import './App.css'
-import Form from '../src/components/Form'
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UserDashboard from './components/pages/UserDashboard';
+import Play from './components/pages/Play';
 
 function App() {
   return (
     <>
-     <div className='flex w-full h-screen'>
-     <div className='w-full flex items-center justify-center'> 
-      <Form></Form> 
-      </div>
-     <div >
-      <div className=''></div>
-     </div>
-     </div> 
+      <Router>
+        <Routes>
+          <Route path="/" element={<UserDashboard />} />
+          <Route path="/play" element={<Play />} />
+          {/* Other routes */}
+        </Routes>
+      </Router>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
