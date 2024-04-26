@@ -33,28 +33,33 @@ const Form = ()=>{
     //     console.log(formData);
     // }
 
-    const signUp = async()=>{
-        let response;
-        console.log(formData);
-        const res= await fetch('http://localhost:8000/api/v1/users/register',{
-            method:"POST",
-            headers:{
-                Accept:'application/json',
-                'Content-Type': 'application/json'
-            },
-            body:JSON.stringify(formData)
-        }).then((res)=>res.json()).then((data)=>response=data)
-        console.log(response);
-        console.log(res.status);
-        if(res.status==201){
-            alert("Successfully created user ");
-            window.location('/');
-
-        }else if(res.status==409){
-            alert("User with same email exists")
-            console.log(res.status);
+    const signUp = async () => {
+        try {
+            const res = await fetch('http://localhost:8000/api/v1/users/register', {
+                method: "POST",
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            });
+            
+            const data = await res.json();
+            
+            if (res.status === 201) {
+                alert("Successfully created user ");
+                window.location = '/Dashboard';
+            } else if (res.status === 409) {
+                alert("User with same email exists");
+            } else {
+                console.log(data.error || "Unknown Error");
+            }
+        } catch (error) {
+            console.error("Error:", error);
         }
-    }
+    };
+    
+
     return(
         <>  
         <div className="main">
