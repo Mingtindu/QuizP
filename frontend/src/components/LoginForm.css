@@ -1,0 +1,110 @@
+.login-form {
+    width: 300px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form h2 {
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.form-group label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+}
+
+.form-group input {
+    width: calc(100% - 30px);
+    padding: 10px;
+    padding-left: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.btn-login {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.or {
+    text-align: center;
+    margin: 10px 0;
+    color: #999;
+}
+
+.btn-google {
+    width: 100%;
+    padding: 10px;
+    background-color: #db4437;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+/* Style for the container div */
+.password-container {
+    position: relative;
+  }
+  
+  /* Style for the input field */
+  .password-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Style for the eye button */
+ 
+  
+  /* Style for the eye icon */
+  .password-toggle-icon {
+    width: 20px;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+  }
+  
+  /* Style for the eye icon in the visible state */
+  .password-visible {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/69/69524.png');
+  }
+  
+  /* Style for the eye icon in the hidden state */
+  .password-hidden {
+    background-image: url('https://cdn-icons-png.flaticon.com/512/69/69543.png');
+  }
+  
+  /* Hide the default browser focus outline */
+  .password-toggle-button:focus {
+    outline: none;
+  }
+  .password-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  
