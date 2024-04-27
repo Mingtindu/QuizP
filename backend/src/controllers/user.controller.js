@@ -52,4 +52,4 @@ const checkUser = async (req,res)=>{
 
 }
 
-export { addUser };
+export { addUser, checkUser };
