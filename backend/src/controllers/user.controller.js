@@ -3,11 +3,11 @@ import mongoose from 'mongoose';
 
 const addUser = async (req, res) => {
   const { name, email, password } = req.body;
-  console.log(email,name,password);
+  console.log(email, name, password);
   if ([name, email, password].some((field) => !field || field.trim() === '')) {
     return res.status(400).json({ error: 'All fields are required' });
   }
-  
+
   try {
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -29,8 +29,27 @@ const addUser = async (req, res) => {
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: 'Internal Server Error' });
-   
   }
 };
+
+const checkUser = async (req,res)=>{
+  const {email,password} = req.body;
+  if(email.trim()===""|| password.trim()===""){
+    return res.status(400,"Both fields are  required");
+  }
+  const checkUser = await User.findOne({email})
+  if(checkUser){
+    if(password === checkUser.password){
+      return res.status(200,"User login successful")
+    }else{
+      return res.status(401,"Incorrect password")
+    }
+
+  }else{
+    return res.status(404,"User not found")
+  }
+
+
+}
 
 export { addUser };
