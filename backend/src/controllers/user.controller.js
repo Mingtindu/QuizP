@@ -34,19 +34,21 @@ const addUser = async (req, res) => {
 
 const checkUser = async (req,res)=>{
   const {email,password} = req.body;
+  console.log(email);
   if(email.trim()===""|| password.trim()===""){
-    return res.status(400,"Both fields are  required");
+    return res.status(400).send("All fields are required")
   }
   const checkUser = await User.findOne({email})
   if(checkUser){
+    console.log(checkUser);
     if(password === checkUser.password){
-      return res.status(200,"User login successful")
+      return res.status(201).send("login")
     }else{
-      return res.status(401,"Incorrect password")
+      return res.status(401).send("Incorrect password")
     }
 
   }else{
-    return res.status(404,"User not found")
+    return res.status(404).send("User not found")
   }
 
 

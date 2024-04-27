@@ -18,7 +18,7 @@ const LoginForm = () => {
     };
 
     const signUp = async () => {
-        //console.log(formData);
+        console.log(formData);
         try{
             const response = await fetch('http://localhost:8000/api/v1/users/login',{
                 method:'POST',
@@ -26,11 +26,12 @@ const LoginForm = () => {
                 Accept: 'application/json',
                 'Content-Type':'application/json'
                 },
-                body:JSON.stringify(formData);
+                body:JSON.stringify(formData)
             
-        })
-        if(response.status===200){
-            alert("Successfull login ")
+        });
+        if(response.status==201){
+            console.log('login hai');
+            alert("Successfull login ");
         }
 
         }catch(err){
