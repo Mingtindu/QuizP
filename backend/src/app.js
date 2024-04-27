@@ -1,6 +1,7 @@
 import express from 'express';
 import cors from 'cors'
 const app = express();//creating express app:
+import session from 'express-session'
 app.use(session({
     secret: 'quiz-ming', // Change this to a secure random string
     resave: false,
