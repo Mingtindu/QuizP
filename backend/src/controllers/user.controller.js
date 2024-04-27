@@ -42,6 +42,9 @@ const checkUser = async (req,res)=>{
   if(checkUser){
     console.log(checkUser);
     if(password === checkUser.password){
+      req.session.user = {
+        name:checkUser.name,
+        email: checkUser.email };
       return res.status(201).send("login")
     }else{
       return res.status(401).send("Incorrect password")
