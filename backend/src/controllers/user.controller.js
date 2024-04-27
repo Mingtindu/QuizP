@@ -45,6 +45,8 @@ const checkUser = async (req,res)=>{
       req.session.user = {
         name:checkUser.name,
         email: checkUser.email };
+        console.log(req.session); // Debug statement to check the session object after setting it
+
       return res.status(201).send("login")
     }else{
       return res.status(401).send("Incorrect password")
