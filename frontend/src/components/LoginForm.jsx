@@ -18,7 +18,25 @@ const LoginForm = () => {
     };
 
     const signUp = async () => {
-        console.log(formData);
+        //console.log(formData);
+        try{
+            const response = await fetch('http://localhost:8000/api/v1/users/login',{
+                method:'POST',
+                headers:{
+                Accept: 'application/json',
+                'Content-Type':'application/json'
+                },
+                body:JSON.stringify(formData);
+            
+        })
+        if(response.status===200){
+            alert("Successfull login ")
+        }
+
+        }catch(err){
+            console.log(`error happen :${err}`);
+
+        }
     };
 
     const togglePasswordVisibility = () => {
