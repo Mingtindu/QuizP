@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
 import './UserDashboard.css';
 import Navbar from '../Navbar';
+import QuizSelectionPage from './QuizSelectionPage';
 const UserDashboard = () => {
 
   const toggleUserInfo = () => {
@@ -11,6 +12,10 @@ const UserDashboard = () => {
   return (
     <div>
       <Navbar></Navbar>
+      <hr />
+      <QuizSelectionPage></QuizSelectionPage>
+      <hr />
+
     </div>
   );
 };
