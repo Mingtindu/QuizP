@@ -1,22 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom'; // Assuming you're using React Router for navigation
-import './UserDashboard.css'
+import './UserDashboard.css';
+import Navbar from '../Navbar';
 const UserDashboard = () => {
-    const user ={
-        photo:"hihi",
-        name:"Mingtindu Sherpa"
-    }
+
+  const toggleUserInfo = () => {
+    setShowUserInfo(!showUserInfo);
+  };
+
   return (
-    <div className="user-dashboard">
-      <div className="user-info">
-        <img src={user.photo} alt="User" className="user-photo" />
-        <h2 className="user-name">{user.name}</h2>
-      </div>
-      <div className="play-option">
-        <Link to="/play" className="play-link">
-          Play Quiz
-        </Link>
-      </div>
+    <div>
+      <Navbar></Navbar>
     </div>
   );
 };

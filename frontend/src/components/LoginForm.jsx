@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import './LoginForm.css';
-
+//import useHistory  from 'react-router-dom';
 const LoginForm = () => {
+    // const history = useHistory();
     const [formData, setFormData] = useState({
         email: "",
         password: "",
@@ -19,22 +20,23 @@ const LoginForm = () => {
 
     const signUp = async () => {
         console.log(formData);
-        try{
-            const response = await fetch('http://localhost:8000/api/v1/users/login',{
-                method:'POST',
-                headers:{
-                Accept: 'application/json',
-                'Content-Type':'application/json'
+        try {
+            const response = await fetch('http://localhost:8000/api/v1/users/login', {
+                method: 'POST',
+                headers: {
+                    Accept: 'application/json',
+                    'Content-Type': 'application/json'
                 },
-                body:JSON.stringify(formData)
-            
-        });
-        if(response.status==201){
-            console.log('login hai');
-            window.location.href('/dashboard')
-        }
+                body: JSON.stringify(formData)
+            });
+            if (response.status == 201) {
+                console.log('login hai');
+                // Redirect to the dashboard page
+                window.location.href = '/dashboard';
 
-        }catch(err){
+                //history.push('/dashboard');
+            }
+        } catch (err) {
             console.log(`error happen :${err}`);
 
         }
