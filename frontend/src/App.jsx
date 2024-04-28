@@ -10,7 +10,8 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route path='/login' element={<LoginForm/>}/>
+          <Route path='/login' element={<UserDashboard/>}/>
+          <Route path='/dashboard' element={<LoginForm/>}/>
           <Route path="/" element={<Form />} />
           <Route path="/play" element={<QuizSelectionPage />} />
           <Route path="/play/programming-quiz" element={<Programming />} />

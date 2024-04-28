@@ -31,7 +31,7 @@ const LoginForm = () => {
         });
         if(response.status==201){
             console.log('login hai');
-            alert("Successfull login ");
+            window.location.href('/dashboard')
         }
 
         }catch(err){
