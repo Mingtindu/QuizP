@@ -37,4 +37,17 @@ const addQuestion = async (req,res)=>{
 
 }
 
-export {addQuestion}
+const getQuestion =async (req,res)=>{
+    try{
+        const questions= await Question.find({})
+        return res.json(questions)
+
+    }catch(err){
+        console.error(err)
+        res.status(500).send("Internal Server Error");
+    }
+
+
+}
+
+export {addQuestion,getQuestion}
