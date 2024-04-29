@@ -41,9 +41,11 @@ app.get('/check-session', (req, res) => {
 
 
 //routes::
+import questionRouter from './routes/question.route.js'
 import userRouter from './routes/user.router.js'
 
 //routes declaration::
+app.use("api/v1/questions",questionRouter)
 app.use("/api/v1/users",userRouter)//middleware:
 //http://localhost:8000/api/v1/users/register
 export {app};
