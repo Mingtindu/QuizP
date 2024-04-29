@@ -7,6 +7,7 @@ const addQuestion = async (req,res)=>{
 
     //acception frontend :
     const {name,category,ch1,ch2,ch3} = req.body
+    console.log(`name is name ${name}`);
 
     //checking if the data is empty or not 
     if(name===""){

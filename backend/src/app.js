@@ -45,7 +45,7 @@ import questionRouter from './routes/question.router.js'
 import userRouter from './routes/user.router.js'
 
 //routes declaration::
-app.use("api/v1/questions",questionRouter)
+app.use("/api/v1/questions",questionRouter)
 app.use("/api/v1/users",userRouter)//middleware:
 //http://localhost:8000/api/v1/users/register
 export {app};
