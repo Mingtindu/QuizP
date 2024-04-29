@@ -18,13 +18,13 @@ const AddQuizQuestion = () => {
 
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async(e) => {
     e.preventDefault();
     // Here you can submit the question data to your backend or wherever it's needed
     console.log(question);
 
     try {
-      const response = fetch('http://localhost:8000/api/v1/questions/addQuestion', {
+      const response =await fetch('http://localhost:8000/api/v1/questions/addQuestion', {
         method: "POST",
         headers: {
           Accept: 'application/json',
@@ -33,7 +33,12 @@ const AddQuizQuestion = () => {
         body: JSON.stringify(question)
 
       })
-
+      console.log(response.status);
+      if(response.status===200){
+        alert("Successfully added Question")
+        setQuestion("")
+      }
+    
     } catch (err) {
       console.log(`Error happen ${err}`);
     }
