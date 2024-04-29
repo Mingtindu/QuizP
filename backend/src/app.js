@@ -41,7 +41,7 @@ app.get('/check-session', (req, res) => {
 
 
 //routes::
-import questionRouter from './routes/question.route.js'
+import questionRouter from './routes/question.router.js'
 import userRouter from './routes/user.router.js'
 
 //routes declaration::

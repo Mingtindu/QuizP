@@ -2,35 +2,42 @@ import React, { useState } from 'react';
 import './AddQuizQuestion.css';
 
 const AddQuizQuestion = () => {
-  const [question, setQuestion] = useState('');
-  const [category, setCategory] = useState('');
-  const [options, setOptions] = useState(['', '', '']);
-  const [correctOptionIndex, setCorrectOptionIndex] = useState(0);
+  const [question, setQuestion] = useState({
+    name: "",
+    category: "",
+    ch1: "",
+    ch2: "",
+    ch3: "",
 
-  const handleOptionChange = (index, value) => {
-    const updatedOptions = [...options];
-    updatedOptions[index] = value;
-    setOptions(updatedOptions);
-  };
+  });
+  const changeHandler = (e) => {
+    setQuestion({
+      ...question,
+      [e.target.name]: e.target.value
+    })
 
-  const handleCorrectOptionChange = (index) => {
-    setCorrectOptionIndex(index);
-  };
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     // Here you can submit the question data to your backend or wherever it's needed
-    console.log({
-      question,
-      category,
-      options,
-      correctOption: options[correctOptionIndex]
-    });
+    console.log(question);
+
+    try {
+      const response = fetch('http://localhost:8000/api/v1/questions/addQuestion', {
+        method: "POST",
+        headers: {
+          Accept: 'application/json',
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify
+
+      })
+
+    } catch (err) {
+      console.log(`Error happen ${err}`);
+    }
     // Reset the form after submission
-    setQuestion('');
-    setCategory('');
-    setOptions(['', '', '']);
-    setCorrectOptionIndex(0);
   };
 
   return (
@@ -41,8 +48,9 @@ const AddQuizQuestion = () => {
           <label>Question Name:</label>
           <input
             type="text"
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
+            name='name'
+            value={question.name}
+            onChange={changeHandler}
             className="form-control"
           />
         </div>
@@ -50,31 +58,44 @@ const AddQuizQuestion = () => {
           <label>Category:</label>
           <input
             type="text"
-            value={category}
-            onChange={(e) => setCategory(e.target.value)}
+            name='category'
+            value={question.category}
+            onChange={changeHandler}
             className="form-control"
           />
         </div>
         <div className="form-group">
           <label>Options:</label>
-          {options.map((option, index) => (
-            <div key={index} className="option-group">
+            <div className="option-group">
               <input
                 type="text"
-                value={option}
-                onChange={(e) => handleOptionChange(index, e.target.value)}
+                name="ch1"
+                value={question.ch1}
+                onChange={changeHandler}
                 className="form-control option-input"
               />
+          
+              <label className="correct-label">Option 1</label>
               <input
-                type="radio"
-                name="correctOption"
-                checked={correctOptionIndex === index}
-                onChange={() => handleCorrectOptionChange(index)}
-                className="correct-option"
+                type="text"
+                name="ch2"
+                value={question.ch2}
+                onChange={changeHandler}
+                className="form-control option-input"
               />
-              <label className="correct-label">Correct</label>
+              <label className="correct-label">Option 2</label>
+             
+              <input
+                type="text"
+                name="ch3"
+                value={question.ch3}
+                onChange={changeHandler}
+                className="form-control option-input"
+              />
+              <label className="correct-label">Option 3(Correct)</label>
+            
             </div>
-          ))}
+          
         </div>
         <button type="submit" className="btn-submit">Add Question</button>
       </form>

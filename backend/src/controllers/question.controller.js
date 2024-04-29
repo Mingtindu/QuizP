@@ -1,4 +1,4 @@
-import Question from '../model/question.model'
+import Question from '../model/question.model.js'
 import mongoose from 'mongoose'
 
 //question add ::
@@ -35,3 +35,5 @@ const addQuestion = async (req,res)=>{
 
 
 }
+
+export {addQuestion}
