@@ -1,9 +1,14 @@
+body{
+  background-color: #999;
+}
 .login-form {
+    background-color: rgb(158, 175, 152);
+    justify-content: center;
     width: 300px;
     margin: 0 auto;
     padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+    border: 1px solid #000000;
+    border-radius: 15px;
 }
 
 .login-form h2 {

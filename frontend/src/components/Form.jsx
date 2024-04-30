@@ -1,18 +1,20 @@
 import React, { useState } from "react";
-import './Form.css'
-const Form = ()=>{
-    const [formData,setFormData] = useState({
-        name:"",
-        email:"",
-        password:""
+import './Form.css';
+
+const Form = () => {
+    const [formData, setFormData] = useState({
+        name: "",
+        email: "",
+        password: ""
     });
-    const changeHaldler=(e)=>{
+
+    const changeHandler = (e) => {
         setFormData({
             ...formData,
-            [e.target.name]:e.target.value
+            [e.target.name]: e.target.value
         });
+    };
 
-    }
     const onGoogleSignIn = async () => {
         const auth2 = window.gapi.auth2.getAuthInstance();
         try {
@@ -22,16 +24,11 @@ const Form = ()=>{
                 ...formData,
                 name: profile.getName(),
                 email: profile.getEmail(),
-                // You may want to handle password differently for Google sign-in
             });
-            // You can call signUp or any other function to proceed with the sign-up process
         } catch (error) {
             console.error('Google Sign-In Error:', error);
         }
-    }
-    // const signUp = async () => {
-    //     console.log(formData);
-    // }
+    };
 
     const signUp = async () => {
         try {
@@ -43,11 +40,11 @@ const Form = ()=>{
                 },
                 body: JSON.stringify(formData)
             });
-            
+
             const data = await res.json();
-            
+
             if (res.status === 201) {
-                alert("Successfully created user ");
+                alert("Successfully created user");
                 window.location = '/Dashboard';
             } else if (res.status === 409) {
                 alert("User with same email exists");
@@ -58,25 +55,22 @@ const Form = ()=>{
             console.error("Error:", error);
         }
     };
-    
 
-    return(
-        <>  
+    return (
         <div className="main">
-        <h1>Sign Up</h1>
-        <div className="input">
-        <form >
-            <label htmlFor="name">Name <input name="name" onChange={changeHaldler} value={formData.name}  type="text" placeholder="Enter your name" /></label>
-           <label htmlFor="email">Email <input name="email" onChange={changeHaldler} value={formData.email}  type="email" placeholder="Enter your email" /></label>
-            <label htmlFor="password">Password  <input name="password" onChange={changeHaldler} value={formData.password} type="password" placeholder="Enter your password" /></label>
-        </form> 
-        <button onClick={()=>{console.log(`button click`); signUp()}}>Register</button>
-        <button onClick={onGoogleSignIn}>Sign in with Google</button>
+            <h1>Sign Up</h1>
+            <div className="input">
+                <form>
+                    <label htmlFor="name">Name <input name="name" onChange={changeHandler} value={formData.name} type="text" placeholder="Enter your name" /></label>
+                    <label htmlFor="email">Email <input name="email" onChange={changeHandler} value={formData.email} type="email" placeholder="Enter your email" /></label>
+                    <label htmlFor="password">Password  <input name="password" onChange={changeHandler} value={formData.password} type="password" placeholder="Enter your password" /></label>
+                </form>
+                <button onClick={() => signUp()}>Register</button>
+                <button onClick={onGoogleSignIn}>Sign in with Google</button>
+                <button onClick={()=>window.location.href='/login'}>Already a user? Login</button>
+            </div>
         </div>
-        </div>
-        </>
-
-    )
-}
+    );
+};
 
 export default Form;
