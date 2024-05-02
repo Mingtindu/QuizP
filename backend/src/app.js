@@ -24,6 +24,16 @@ app.use(session({
   saveUninitialized: false,
   store: store // Use MongoDBStore for session storage
 }));
+///Authentication::::::::::::::::::::::::::::::
+const isAuth = (req,res,next)=>{
+  if(req.session.isAuth){
+    next()
+  }else{
+    
+  }
+
+
+}
 app.use(express.json({limit:"16kb"}))
 app.use(express.static("public"))
 app.use(cors())

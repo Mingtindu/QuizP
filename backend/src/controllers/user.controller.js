@@ -42,10 +42,11 @@ const checkUser = async (req,res)=>{
   if(checkUser){
     console.log(checkUser);
     if(password === checkUser.password){
-      req.session.user = {
-        name:checkUser.name,
-        email: checkUser.email };
-        console.log(req.session); // Debug statement to check the session object after setting it
+      req.session.isAuth = true;
+      // req.session.user = {
+      //   name:checkUser.name,
+      //   email: checkUser.email };
+      //   console.log(req.session); // Debug statement to check the session object after setting it
 
       return res.status(201).send("login")
     }else{

@@ -11,7 +11,7 @@ const UserDashboard = () => {
 
   return (
     <div>
-      <Navbar></Navbar>
+    
       <hr />
       <QuizSelectionPage></QuizSelectionPage>
       <hr />
