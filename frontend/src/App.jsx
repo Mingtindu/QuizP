@@ -7,6 +7,7 @@ import Programming from './components/pages/Programming';
 import LoginForm from './components/LoginForm';
 import Navbar from './components/Navbar';
 import UserSection from './components/pages/UserSection';
+import Playing from './components/pages/Playing'
 function App() {
   return (
     <>
@@ -16,8 +17,9 @@ function App() {
           <Navbar/>
         <Routes>
           
-          <Route path='/dashboard' element={<UserDashboard/>}/>
           <Route path='/user' element={<UserSection/>}/>
+          <Route path='/sports' element={<UserSection/>}/>
+          <Route path='/dashboard' element={<UserDashboard/>}/>
           <Route path='/nav' element={<Navbar/>}/>
           <Route path='/login' element={<LoginForm/>}/>
           <Route path="/register" element={<Form />} />

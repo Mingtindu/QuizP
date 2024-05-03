@@ -17,7 +17,7 @@ const QuizSelectionPage = () => {
             <h2>सामान्य ज्ञान </h2>
           </div>
         </Link>
-        <Link to="/gk/General Knowledge Quiz"> 
+        <Link to="/sports"> 
           <div className="quiz-option">
             <img src={gk_img} alt="General Knowledge Quiz" />
             <h2>खेलकुद</h2>
