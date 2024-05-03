@@ -9,27 +9,27 @@ import animal_img from '../../Images/animal.jpg';
 const QuizSelectionPage = () => {
   return (
     <div className="quiz-selection">
-      <h1>Welcome to the Quiz Selection Page!</h1>
+      <h1>Play Now</h1>
       <div className="quiz-options">
-        <Link to="/play/Programming-quiz"> {"Programming"}
+        <Link to="/play/Programming-quiz"> 
           <div className="quiz-option">
             <img src={programming_img} alt="Programming Quiz" />
             <h2>Programming Quiz</h2>
           </div>
         </Link>
-        <Link to="/gk/General Knowledge Quiz"> {"GK"}
+        <Link to="/gk/General Knowledge Quiz"> 
           <div className="quiz-option">
             <img src={gk_img} alt="General Knowledge Quiz" />
             <h2>General Knowledge Quiz</h2>
           </div>
         </Link>
-        <Link to="/geography/Geography Quiz"> {"Geography"}
+        <Link to="/geography/Geography Quiz">
           <div className="quiz-option">
             <img src={geography_img} alt="Geography Quiz" />
             <h2>Geography Quiz</h2>
           </div>
         </Link>
-        <Link to="/animal/Animal Quiz"> {"Animal"}
+        <Link to="/animal/Animal Quiz">
           <div className="quiz-option">
             <img src={animal_img} alt="Animal Quiz" />
             <h2>Animal Quiz</h2>
