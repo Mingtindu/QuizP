@@ -1,13 +1,19 @@
 /* Navbar.css */
 
 .navbar {
-    font-size: 18px;
     color: black;
     padding: 10px 0;
     width: 100%; /* Ensure the navbar spans the full width of the screen */
   }
-  
+  .nav-logo:hover{  
+    border-color: aqua;
+  }
   .navbar-container {
+    height: 10vh;
+    font-size: 18px;
+    border: 2px solid rgb(223, 219, 226);
+    border-radius: 10px;
+    background-color: rgb(211, 210, 207);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,14 +45,32 @@
     margin-right: 20px;
   }
   
+  
   .navbar-link {
+    font-size: 20px;
+    font-family: 500;
     color: #fff;
     text-decoration: none;
   }
-  
-  .user-icon {
-    font-size: 1.2rem;
+  .navbar-link:hover{
+    cursor: pointer;
+    color: aqua;
+
   }
+  .navbar-link img{
+    border: 4px solid white;
+    border-radius: 50%;
+    height: 55px;
+    width: 55px;
+  
+  }
+  .navbar-link img:hover{
+    border-color: aqua;
+  }
+  
+  /* .user-icon {
+    font-size: 1.2rem;
+  } */
   
   /* Media Query for responsiveness */
   @media screen and (max-width: 768px) {
@@ -64,8 +88,9 @@
     }
   }
   .logo img{
+    border: 4px solid white;
     border-radius: 50%;
-    height: 60px;
-    width: 60px;
+    height: 55px;
+    width: 55px;
   }
   

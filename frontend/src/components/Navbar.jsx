@@ -10,12 +10,12 @@ const Navbar = () => {
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-brand">
-          <Link to="/dashboard" className="logo"><img src={nav_img} alt="" /></Link>
+          <Link to="/dashboard" className="logo"><img className='nav-logo' src={nav_img} alt="" /></Link>
         </div>
         <div className="navbar-menu">
           <ul className="navbar-list">
             <li className="navbar-item">
-              <Link to="/play" className="navbar-link">Play</Link>
+              <Link to="/dashboard" className="navbar-link">Play</Link>
             </li>
             <li className="navbar-item">
               <Link to="/about" className="navbar-link">About</Link>
@@ -23,9 +23,10 @@ const Navbar = () => {
             <li className="navbar-item">
               <Link to="/upcoming" className="navbar-link">Upcoming</Link>
             </li>
+           
             <li className="navbar-item">
               <Link to="/user" className="navbar-link user-icon">
-              <img src={user_icon} alt="" ></img>
+              <img className='usr-icon' src={user_icon} alt="" ></img>
               </Link>
             </li>
           </ul>

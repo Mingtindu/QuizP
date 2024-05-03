@@ -3,12 +3,12 @@ import './Programming.css'
 const Programming = ({quizName}) => {
   const quizQuestions = [
     {
-      question: 'What is the capital of France?',
-      options: ['Paris', 'London', 'Berlin', 'Rome'],
-      correctAnswer: 'Paris'
+      question: 'भोटो जात्राको प्रचलन कसले गरे ?',
+      options: [' नरेन्द्र देवले', 'London', 'Berlin', 'Rome'],
+      correctAnswer: ' नरेन्द्र देवले'
     },
     {
-      question: 'Which programming language is used for building web pages?',
+      question: 'स्वयम्भुको ज्वतिलाई छोपी सोमाथी चैत्यको निर्माण गर्ने राजा को हुन ?',
       options: ['Java', 'Python', 'JavaScript', 'C++'],
       correctAnswer: 'JavaScript'
     },
