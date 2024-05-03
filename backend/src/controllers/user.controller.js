@@ -1,6 +1,6 @@
 import User from '../model/user.model.js';
 import mongoose from 'mongoose';
-
+import { createToken,jwtAuth } from '../authentication/jwt.js';
 const addUser = async (req, res) => {
   const { name, email, password } = req.body;
   console.log(email, name, password);
@@ -19,13 +19,19 @@ const addUser = async (req, res) => {
       email,
       password
     });
-
+    const payload = {
+      id:user.id,
+      email:user.email
+    }
+    
     const createdUser = await User.findById(user._id).select('-password -refreshToken');
+ 
     if (!createdUser) {
       return res.status(500).json({ error: 'Something went wrong while registering user' });
     }
-
-    return res.status(201).json(createdUser);
+    const token = createToken(payload)
+    console.log(`Token is ${token}`)
+    return res.status(201).json(createdUser,{token:token});
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: 'Internal Server Error' });

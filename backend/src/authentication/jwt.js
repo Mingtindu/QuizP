@@ -17,6 +17,10 @@ const jwtAuth = (req,res,next)=>{
 
     }
 
-}
 
-export {jwtAuth}
+}
+const createToken = (userData)=>{
+    return jwt.sign(userData,process.env.JWT_SECRET)
+
+}
+export {jwtAuth,createToken}

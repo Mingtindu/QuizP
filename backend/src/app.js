@@ -6,34 +6,34 @@ import cors from 'cors';
 const app = express();
 
 // Initialize MongoDBStore
-const MongoDBStore = MongoDBSessionStore(session);
-const store = new MongoDBStore({
-  uri: 'mongodb+srv://mingtindu:sherpa123@cluster0.tmhjkd7.mongodb.net/quiz', // MongoDB connection URI
-  collection: 'sessions' // Collection name for storing sessions
-});
+// const MongoDBStore = MongoDBSessionStore(session);
+// const store = new MongoDBStore({
+//   uri: 'mongodb+srv://mingtindu:sherpa123@cluster0.tmhjkd7.mongodb.net/quiz', // MongoDB connection URI
+//   collection: 'sessions' // Collection name for storing sessions
+// });
 
 // Catch errors
-store.on('error', function(error) {
-  console.error('Session store error:', error);
-});
+// store.on('error', function(error) {
+//   console.error('Session store error:', error);
+// });
 
 // Set up session middleware
-app.use(session({
-  secret: 'your-secret-key', // Change this to a secure random string
-  resave: false,
-  saveUninitialized: false,
-  store: store // Use MongoDBStore for session storage
-}));
+// app.use(session({
+//   secret: 'your-secret-key', // Change this to a secure random string
+//   resave: false,
+//   saveUninitialized: false,
+//   store: store // Use MongoDBStore for session storage
+// }));
 ///Authentication::::::::::::::::::::::::::::::
-const isAuth = (req,res,next)=>{
-  if(req.session.isAuth){
-    next()
-  }else{
+// const isAuth = (req,res,next)=>{
+//   if(req.session.isAuth){
+//     next()
+//   }else{
     
-  }
+//   }
 
 
-}
+// }
 app.use(express.json({limit:"16kb"}))
 app.use(express.static("public"))
 app.use(cors())
